@@ -7,7 +7,7 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "activiteuser")
+@Table(name = "pointgps")
 public class Pointgps {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -36,4 +36,7 @@ public class UserDto {
     @JsonProperty("idGenre")
     private long idGenre;
 
+    @JsonProperty("profil")
+    private String profil;
+
 }

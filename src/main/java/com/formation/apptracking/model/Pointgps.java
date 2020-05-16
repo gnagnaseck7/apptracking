@@ -25,7 +25,7 @@ public class Pointgps {
     private double longitude;
 
     @Column(name = "idActiviteUser")
-    private int idActiviteUse;
+    private long idActiviteUser;
 
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="idActiviteUser",referencedColumnName = "idActiviteUser",insertable = false, updatable = false)

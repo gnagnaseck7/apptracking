@@ -32,10 +32,10 @@ public class Activiteuser {
     private Character valide;
 
     @Column(name = "idUser")
-    private int idUser;
+    private long idUser;
 
     @Column(name = "idActivite")
-    private int idActivite;
+    private long idActivite;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private List<Pointgps> listPointGpsActivite;

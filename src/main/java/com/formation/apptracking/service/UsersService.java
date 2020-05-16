@@ -22,7 +22,7 @@ public class UsersService {
     }
 
     @Transactional
-    public UserDto saveUser(UserDto user){
+    public UserDto saveUser(UserDto user,String profil){
         try {
             Genre g=this.genreRepo.findById(user.getIdGenre()).orElseThrow(()
                     -> new EntityNotFoundException(String.format("Id du genre selectionner n'existe pas dans la base: ",user.getIdGenre())));
@@ -31,13 +31,14 @@ public class UsersService {
             u.setAdresseUser(user.getAdresseUser());
             u.setAgeUser(user.getAgeUser());
             u.setPrenomUser(user.getPrenomUser());
-            u.setGenre(g);
+            u.setIdGenre(g.getIdGenre());
             u.setLogin(user.getLogin());
             u.setPwd(user.getPwd());
+            u.setProfil(profil);
             this.userRepo.save(u);
             return user;
         }catch (Exception ex){
-            System.err.println("erreur lors de l'ajout d'un nouveau utilisateur");
+            System.err.println("erreur lors de l'ajout d'un nouveau utilisateur"+ ex.getMessage());
             return user;
         }
 

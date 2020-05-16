@@ -34,7 +34,10 @@ public class Users {
     private String pwd;
 
     @Column(name = "idGenre")
-    private int idGenre;
+    private long idGenre;
+
+    @Column(name = "profil")
+    private String profil;
 
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="idGenre",referencedColumnName = "idGenre",insertable = false, updatable = false)

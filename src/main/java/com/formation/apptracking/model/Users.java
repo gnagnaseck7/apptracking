@@ -13,7 +13,7 @@ public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "idUser")
-    private long  idUser;
+    private Long  idUser;
 
     @Column(name = "prenomUser")
     private String prenomUser;
@@ -34,7 +34,7 @@ public class Users {
     private String pwd;
 
     @Column(name = "idGenre")
-    private long idGenre;
+    private Long idGenre;
 
     @Column(name = "profil")
     private String profil;

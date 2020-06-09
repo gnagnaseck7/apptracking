@@ -1,9 +1,6 @@
 package com.formation.apptracking.controller;
 
-import com.formation.apptracking.dto.ActiviteDto;
-import com.formation.apptracking.dto.AvtiviteUserDto;
-import com.formation.apptracking.dto.PointGpsDto;
-import com.formation.apptracking.dto.UserDto;
+import com.formation.apptracking.dto.*;
 import com.formation.apptracking.service.ActiviteUserService;
 import com.formation.apptracking.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,10 +33,26 @@ public class TerminalController extends ApptrackingBaseController{
         return this.userServ.saveUser(userReceive,"UTI");
     }
 
+    @PostMapping("/getConnexion")
+    public UserDto getConnexion( @RequestBody CredentialDto key) {
+        return this.userServ.getConnexionByCredential(key.getLogin(),key.getPwd());
+    }
+
+    @PostMapping("/getConnexionAdmin")
+    public UserDto getConnexionAdmin( @RequestBody CredentialDto key) {
+        return this.userServ.getUserAdminByLogAndPass(key.getLogin(),key.getPwd());
+    }
+
     @PostMapping("/ajouterActiviteUser")
     public AvtiviteUserDto ajouterActiviteSportive(
             @RequestBody AvtiviteUserDto newActivite) {
         return this.activiteServ.saveNewUserActivite(newActivite);
+    }
+
+    @PostMapping("/updateActiviteUser")
+    public AvtiviteUserDto updateActiviteUser(
+            @RequestBody AvtiviteUserDto newActivite) {
+        return this.activiteServ.UpdateUserActivite(newActivite);
     }
 
     @PostMapping("/ajouterPointGps")
@@ -52,6 +65,22 @@ public class TerminalController extends ApptrackingBaseController{
     public List<ActiviteDto> getListeAllActivite(){
         return  this.activiteServ.getListeAllActivite();
     }
+
+    @GetMapping("/getListeAllActiviteByUser/{idUser}")
+    public List<ActiviteUserDtoRetour> getListeAllActiviteByUser(@PathVariable("idUser") Long idUser){
+        return  this.activiteServ.getListeActiviteUserByIdUser(idUser);
+    }
+
+    @GetMapping("/getListeAllActiviteEncours")
+    public List<ActiviteUserDtoRetour> getListeAllActiviteByUser(){
+        return  this.activiteServ.getAllActiviteEnCours();
+    }
+
+    @GetMapping("/getListePointByIdActivite/{idActivite}")
+    public List<PointGpsDto> getListePointByIdActivite(@PathVariable("idActivite") Long idActivite){
+        return  this.activiteServ.getListePointGpsByIdActiviteUser(idActivite);
+    }
+
 
 
 

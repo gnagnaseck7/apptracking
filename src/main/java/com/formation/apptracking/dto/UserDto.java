@@ -13,7 +13,7 @@ import javax.persistence.Column;
 public class UserDto {
 
     @JsonProperty("idUser")
-    private int  idUser;
+    private Long  idUser;
 
     @JsonProperty("prenomUser")
     private String prenomUser;

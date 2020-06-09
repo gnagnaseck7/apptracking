@@ -12,7 +12,7 @@ public class Pointgps {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "idPoint")
-    private long idPoint;
+    private Long idPoint;
 
     @Column(name = "heure")
     @Temporal(TemporalType.TIME)
@@ -25,7 +25,7 @@ public class Pointgps {
     private double longitude;
 
     @Column(name = "idActiviteUser")
-    private long idActiviteUser;
+    private Long idActiviteUser;
 
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="idActiviteUser",referencedColumnName = "idActiviteUser",insertable = false, updatable = false)

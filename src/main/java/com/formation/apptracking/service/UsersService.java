@@ -43,4 +43,40 @@ public class UsersService {
         }
 
    }
+
+   public UserDto getConnexionByCredential(String login,String pwd){
+    try {
+        Users u=this.userRepo.getUserByLogAndPass(login,pwd).orElseThrow(()
+                -> new EntityNotFoundException(String.format("Utilisateur introuvable: ")));
+
+        return toUsersDto(u);
+    }catch (Exception ex){
+        return null;
+    }
+
+   }
+
+    public UserDto getUserAdminByLogAndPass(String login,String pwd){
+        try {
+            Users u=this.userRepo.getUserAdminByLogAndPass(login,pwd,"ADMIN").orElseThrow(()
+                    -> new EntityNotFoundException(String.format("Utilisateur introuvable: ")));
+
+            return toUsersDto(u);
+        }catch (Exception ex){
+            return null;
+        }
+
+    }
+
+    public  UserDto toUsersDto(Users u){
+        UserDto uti=new UserDto();
+        uti.setIdUser(u.getIdUser());
+        uti.setAdresseUser(u.getAdresseUser());
+        uti.setAgeUser(u.getAgeUser());
+        uti.setIdGenre(u.getIdGenre());
+        uti.setLogin(u.getLogin());
+        uti.setProfil(u.getProfil());
+        uti.setPwd(u.getPwd());
+        return uti;
+    }
 }

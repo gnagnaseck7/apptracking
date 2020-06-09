@@ -12,7 +12,7 @@ public class Genre {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "idGenre")
-    private long  idGenre;
+    private Long idGenre;
 
     @Column(name = "libelleGenre")
     private String libelleGenre;

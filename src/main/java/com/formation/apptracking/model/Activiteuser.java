@@ -14,7 +14,7 @@ public class Activiteuser {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "idActiviteUser")
-    private long idActiviteUser;
+    private Long idActiviteUser;
 
     @Column(name = "dateActivite")
     @Temporal(TemporalType.DATE)
@@ -32,10 +32,10 @@ public class Activiteuser {
     private Character valide;
 
     @Column(name = "idUser")
-    private long idUser;
+    private Long idUser;
 
     @Column(name = "idActivite")
-    private long idActivite;
+    private Long idActivite;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private List<Pointgps> listPointGpsActivite;

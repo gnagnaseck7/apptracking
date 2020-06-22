@@ -111,7 +111,7 @@ public class ActiviteUserService {
         activiteRetour.setLibelleActivite(ac.getLibelleActivite());
         activiteRetour.setValide(a.getValide());
         activiteRetour.setListPointGps(listePointGpsActivite);
-        activiteRetour.setPrenomNomUser(u.getNomUser()+" "+u.getNomUser());
+        activiteRetour.setPrenomNomUser(u.getNomUser()+" "+u.getPrenomUser());
         return activiteRetour;
     }
 

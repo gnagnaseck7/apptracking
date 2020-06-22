@@ -12,7 +12,7 @@ public interface ActiviteUserRepository extends JpaRepository<Activiteuser,Long>
 
     List<Activiteuser> findByIdActivite(long idActivite);
 
-    @Query("select a from Activiteuser a where a.heureFin = null")
+    @Query("select a from Activiteuser a ")
     List<Activiteuser> getActiviteEnCours();
 
     @Query("select a from Activiteuser a where a.heureFin is not null and a.idUser=?1 order by a.dateActivite desc")
